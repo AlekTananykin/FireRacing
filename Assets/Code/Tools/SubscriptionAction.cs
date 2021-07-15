@@ -19,7 +19,7 @@ namespace Assets.Code.Tools
             _action += subscribeAction;
         }
 
-        public void UnSubscriptionOnChange(Action unsubscriptionAction)
+        public void UnSubscribeOnChange(Action unsubscriptionAction)
         {
             _action -= unsubscriptionAction;
         }

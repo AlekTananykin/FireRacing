@@ -5,9 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseController : BaseController
+public class InputGameController : BaseController
 {
-    public BaseController(
+    public InputGameController(
         SubscriptionProperty<float> leftMove,
         SubscriptionProperty<float> rightMove, Car car)
     {
@@ -30,6 +30,5 @@ public class BaseController : BaseController
 
     protected override void OnDispose()
     {
-        
     }
 }

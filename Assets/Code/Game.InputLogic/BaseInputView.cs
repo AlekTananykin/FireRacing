@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BaseInputView : MonoBehaviour
 {
-    public void Init(SubscriptionProperty<float> leftMove,
+    public virtual void Init(SubscriptionProperty<float> leftMove,
         SubscriptionProperty<float> rightMove, float speed)
     {
         _leftMove = leftMove;
@@ -25,17 +25,5 @@ public class BaseInputView : MonoBehaviour
     protected virtual void OnRightMove(float value)
     {
         _rightMove.Value = value;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -1,17 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Tools;
+using JoostenProductions;
+using UnityEngine;
 
 namespace Assets.Code.Game.InputLogic
 {
-    private class InputAcceleration : BaseController
+    internal class InputAcceleration : BaseInputView
     {
-
-
-        protected override void OnDispose()
+        public override void Init(SubscriptionProperty<float> leftMove,
+            SubscriptionProperty<float> rightMove, float speed)
         {
+            base.Init(leftMove, rightMove, speed);
+            UpdateManager.SubscribeToUpdate(Move);
+        }
+
+        protected void OnDispose()
+        {
+            UpdateManager.UnsubscribeFromUpdate(Move);
+        }
+
+        private void Move()
+        {
+            Vector3 direction = Vector3.zero;
+            direction.x = -Input.acceleration.y;
+            direction.z = Input.acceleration.x;
+
+            if (direction.sqrMagnitude > 1)
+                direction.Normalize();
+
+            OnRightMove(direction.sqrMagnitude / 20 * _speed);
         }
     }
 }

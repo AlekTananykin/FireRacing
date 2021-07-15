@@ -9,6 +9,6 @@ namespace Assets.Code.Tools
     internal interface IReadOnlySubscriptionAction
     {
         void SubscribeOnChange(Action subscribeAction);
-        void UnSubscriptionOnChange(Action unsubscriptionAction);
+        void UnSubscribeOnChange(Action unsubscriptionAction);
     }
 }

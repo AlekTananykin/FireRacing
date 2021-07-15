@@ -6,6 +6,6 @@ namespace Assets.Tools
     {
         T Value { get; }
         void SubscribeOnChange(Action<T> subscriptionAction);
-        void UnSubscriptionInChange(Action<T> unsubscribeAction);
+        void UnsubscribeOnChange(Action<T> unsubscribeAction);
     }
 }

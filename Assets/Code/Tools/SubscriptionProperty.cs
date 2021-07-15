@@ -26,7 +26,7 @@ namespace Assets.Tools
             _onChangeValue += subscriptionAction;
         }
 
-        public void UnSubscriptionInChange(Action<T> unsubscribeAction)
+        public void UnsubscribeOnChange(Action<T> unsubscribeAction)
         {
             _onChangeValue -= unsubscribeAction;
         }
