@@ -13,7 +13,7 @@ namespace Assets.Tools
 
         public T Value
         {
-            get => throw new NotImplementedException();
+            get => _value;
             set 
             {
                 _value = value;

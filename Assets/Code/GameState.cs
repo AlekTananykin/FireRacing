@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Code
 {
-    enum GameState
+    public enum GameState
     {
         None,
         Start,

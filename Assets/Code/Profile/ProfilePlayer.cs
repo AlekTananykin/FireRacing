@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Profile
 {
-    internal class ProfilePlayer
+    public class ProfilePlayer
     {
         public ProfilePlayer(float carSpeed)
         {

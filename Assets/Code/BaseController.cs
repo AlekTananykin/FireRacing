@@ -38,7 +38,7 @@ public abstract class BaseController : IDisposable
 
         OnDispose();
     }
-    protected void AddControllerBaseControler(BaseController baseController)
+    protected void AddController(BaseController baseController)
     {
         if (null == _baseControllers)
             _baseControllers = new List<BaseController>();

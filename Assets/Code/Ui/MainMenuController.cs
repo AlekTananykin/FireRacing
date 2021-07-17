@@ -40,7 +40,6 @@ namespace Assets.Code.Ui
 
         protected override void OnDispose()
         {
-            throw new NotImplementedException();
         }
     }
 }
