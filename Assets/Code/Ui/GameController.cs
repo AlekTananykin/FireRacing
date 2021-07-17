@@ -10,15 +10,15 @@ public class GameController : BaseController
         var leftMoveDiff = new SubscriptionProperty<float>();
         var rightMoveDiff = new SubscriptionProperty<float>();
         
-        var tapeBackgroundController = new TapeBackgroundController(leftMoveDiff, rightMoveDiff);
+        var tapeBackgroundController = 
+            new TapeBackgroundController(leftMoveDiff, rightMoveDiff);
 
 
         AddController(tapeBackgroundController);
-        
+
         var inputGameController = new InputGameController(
-            leftMoveDiff, rightMoveDiff, profilePlayer.CurrentCar);
-
-
+           leftMoveDiff, rightMoveDiff, profilePlayer.CurrentCar);
+        
         AddController(inputGameController);
             
         var carController = new CarController();
@@ -27,7 +27,6 @@ public class GameController : BaseController
 
     protected override void OnDispose()
     {
-        throw new System.NotImplementedException();
     }
 }
 

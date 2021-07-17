@@ -14,9 +14,10 @@ public class InputGameController : BaseController
         _view = LoadView();
         _view.Init(leftMove, rightMove, car.Speed);
     }
+
     private readonly ResourcePath _viewPath = new ResourcePath
     {
-        PathResource = "Prefabs/gyroscopeMove"
+        PathResource = "Prefabs/InputJoystickView"
     };
 
     private BaseInputView _view;
