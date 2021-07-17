@@ -23,7 +23,6 @@ public class MainController : BaseController
         _mainMenuController?.Dispose();
         _gameController?.Dispose();
         _profilePlayer.CurrentState.UnsubscribeOnChange(OnChangeGameState);
-        OnDispose();
     }
 
     private void OnChangeGameState(GameState state)

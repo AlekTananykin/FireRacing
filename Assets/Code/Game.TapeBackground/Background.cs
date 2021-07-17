@@ -21,8 +21,7 @@ public class Background : MonoBehaviour
         if (position.x <= _leftBorder)
             transform.position = new Vector3(
                 _rightBorder - (_leftBorder - position.x), position.y, position.z);
-        else
-             if (transform.position.x >= _rightBorder)
+        else if (transform.position.x >= _rightBorder)
             transform.position = new Vector3(
                 _leftBorder + (_rightBorder - position.x), position.y, position.z);
 
