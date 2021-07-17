@@ -23,7 +23,7 @@ namespace Assets.Code.Ui
         }
 
         private readonly ResourcePath _viewPath = new ResourcePath() 
-            { PathResource = "Prefabs/mainMenu" };
+            { PathResource = "Prefabs/MainMenu" };
 
         private MainMenuView LoadView(Transform placeForUi)
         {

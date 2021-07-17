@@ -17,6 +17,7 @@ namespace Assets.Code.Ui
         public void Init(UnityAction startGame)
         {
             _buttonStart.onClick.AddListener(startGame);
+            _buttonStart.tag = "Start";
         }
 
         protected void OnDestroy()
