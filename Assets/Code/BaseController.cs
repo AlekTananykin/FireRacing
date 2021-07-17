@@ -12,7 +12,6 @@ public abstract class BaseController : IDisposable
 
     public void Dispose()
     {
-
         if (!_isDisposed)
         {
             _isDisposed = true;
@@ -48,7 +47,7 @@ public abstract class BaseController : IDisposable
 
     protected void AddGameObject(GameObject gameObject)
     {
-        if (null != _gameObjects)
+        if (null == _gameObjects)
             _gameObjects = new List<GameObject>();
 
         _gameObjects.Add(gameObject);
