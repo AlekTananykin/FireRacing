@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7396259533621856374}
   - component: {fileID: 7396259533621856375}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Village
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftBorder: -960
   _rightBorder: 960
-  _relativeSpeedRate: 10
+  _relativeSpeedRate: 1
 --- !u!1 &7396259533673587631
 GameObject:
   m_ObjectHideFlags: 0
