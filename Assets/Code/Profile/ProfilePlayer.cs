@@ -14,9 +14,11 @@ namespace Assets.Profile
         {
             CurrentState = new SubscriptionProperty<GameState>();
             CurrentCar = new Car(carSpeed);
+            AnalyticTools = new UnityAnalyticTools();
         }
 
         public SubscriptionProperty<GameState> CurrentState { get; }
         public Car CurrentCar { get; }
+        public IAnalyticsTools AnalyticTools { get; }
     }
 }
