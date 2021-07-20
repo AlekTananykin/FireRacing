@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
 namespace Assets.Code.Ui
 {
@@ -38,10 +39,13 @@ namespace Assets.Code.Ui
             _profilePlayer.CurrentState.Value = GameState.Game;
             _profilePlayer.AnalyticTools.SendMessage("start_game", 
                 ("time", Time.realtimeSinceStartup));
+            _profilePlayer.AdsShower.ShowRewardedVideo();
+            Advertisement.AddListener(_profilePlayer.AdsListener);
         }
 
         protected override void OnDispose()
         {
+            Advertisement.RemoveListener(_profilePlayer.AdsListener);
         }
     }
 }
