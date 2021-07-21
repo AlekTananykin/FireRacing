@@ -43,7 +43,7 @@ public class UnityAdsTools : MonoBehaviour, IAdsShower, IUnityAdsListener
 
     #endregion
     #region MonoBehaviour
-    void Start()
+    public void Start()
     {
         Advertisement.Initialize(_androidGameId, true);
     }
