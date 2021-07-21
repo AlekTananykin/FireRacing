@@ -1,8 +1,6 @@
 using Assets.Code.Tools;
 using Assets.Profile;
 using Assets.Tools;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputGameController : BaseController

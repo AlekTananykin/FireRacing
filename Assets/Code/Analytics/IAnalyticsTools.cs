@@ -1,6 +1,4 @@
 ﻿
-
-
 public interface IAnalyticsTools
 {
     void SendMessage(string eventName);

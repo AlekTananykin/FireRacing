@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine.Analytics;
 
-
-
 public class UnityAnalyticTools : IAnalyticsTools
 {
     public void SendMessage(string eventName)
