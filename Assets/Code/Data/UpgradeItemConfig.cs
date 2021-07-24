@@ -16,5 +16,7 @@ namespace Assets.Code.Data
         public int Id => _itemConfig.Id;
         public UpgradeType Type => _type;
         public float Value => _value;
+
+        public ItemConfig ItemConfig => _itemConfig;
     }
 }
