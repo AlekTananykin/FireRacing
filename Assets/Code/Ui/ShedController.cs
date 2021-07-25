@@ -4,6 +4,7 @@ using Assets.Code.Item;
 using Assets.Code.Tools;
 using Assets.Code.Upgrade;
 using Assets.Profile;
+using Assets.Tools;
 using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,12 @@ namespace Assets.Code.Ui
 
         private ShedView _shedView;
 
+        private readonly IReadOnlySubscriptionProperty<float> _leftMove;
+        private readonly IReadOnlySubscriptionProperty<float> _rightMove;
+
         public ShedController(
+            [NotNull] IReadOnlySubscriptionProperty<float> leftMove,
+            [NotNull] IReadOnlySubscriptionProperty<float> rightMove,
             [NotNull] List<UpgradeItemConfig> upgradeItemConfigs,
             [NotNull] Car car)
         {
@@ -45,17 +51,25 @@ namespace Assets.Code.Ui
                 new ItemsRepository(upgradeItemConfigs.Select(value=>
                 value.ItemConfig).ToList());
 
-            _inventoryView = new InventoryView();
             _inventoryModel = new InventoryModel();
             _inventoryController =
                 new InventoryController(_inventoryModel, 
-                _upgradeItemsRepository, _inventoryView);
+                _upgradeItemsRepository);
 
             AddController(_inventoryController);
 
+
+            _distanceValue = new SubscriptionProperty<float>();
+
             _shedView = LoadView();
             _shedView.OnEnter += OnEnter;
+            _distanceValue.SubscribeOnChange(_shedView.Move);
 
+            _leftMove = leftMove;
+            _rightMove = rightMove;
+
+            _leftMove.SubscribeOnChange(Move);
+            _rightMove.SubscribeOnChange(Move);
         }
 
         public void Enter()
@@ -95,15 +109,26 @@ namespace Assets.Code.Ui
 
         private void OnEnter(GameObject guest)
         {
-            if (!guest.CompareTag("Player"))
-                return;
-
             Enter();
+        }
+
+
+        private readonly SubscriptionProperty<float> _distanceValue;
+
+        private void Move(float value)
+        {
+            _distanceValue.Value = value;
         }
 
         protected override void OnDispose()
         {
             _shedView.OnEnter -= OnEnter;
+
+            _leftMove.UnsubscribeOnChange(Move);
+            _rightMove.UnsubscribeOnChange(Move);
+
+            _distanceValue.UnsubscribeOnChange(_shedView.Move);
+
         }
     }
 }

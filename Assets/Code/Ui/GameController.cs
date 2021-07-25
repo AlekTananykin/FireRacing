@@ -29,13 +29,12 @@ public class GameController : BaseController
         var carController = new CarController();
         AddController(carController);
 
-
         var upgrades = (UpgradeItemConfigDataSource)Resources.Load("InfoItems/UpgradeItems");
         List<UpgradeItemConfig> upgradeItemConfigs = upgrades.ItemConfigs.ToList();
 
-        var shedController = new ShedController(upgradeItemConfigs, profilePlayer.CurrentCar);
+        var shedController = new ShedController(leftMoveDiff, rightMoveDiff,
+            upgradeItemConfigs, profilePlayer.CurrentCar);
         AddController(shedController);
-
     }
 
     protected override void OnDispose()

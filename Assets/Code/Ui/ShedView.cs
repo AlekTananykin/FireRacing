@@ -14,6 +14,11 @@ namespace Assets.Code.Ui
             OnEnter?.Invoke(collision.gameObject);
         }
 
+        public void Move(float value)
+        {
+            transform.position -= Vector3.right * value;
+        }
+
         public Action<GameObject> OnEnter;
     }
 }

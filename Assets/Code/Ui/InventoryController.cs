@@ -12,13 +12,12 @@ namespace Assets.Code.Ui
     {
         private readonly IInventoryModel _inventoryModel;
         private readonly IItemsRepository _itemsRepository;
-        private readonly IInventoryView _inventoryWindowView;
+        private readonly IInventoryView _inventoryView;
 
 
         public InventoryController(
             [NotNull] IInventoryModel inventoryModel,
-            [NotNull] IItemsRepository itemsRepository,
-            [NotNull] IInventoryView inventoryView)
+            [NotNull] IItemsRepository itemsRepository)
         {
             _inventoryModel = inventoryModel ?? 
                 throw new ArgumentNullException(nameof(inventoryModel));
@@ -26,18 +25,17 @@ namespace Assets.Code.Ui
             _itemsRepository = itemsRepository ??
                 throw new ArgumentNullException(nameof(itemsRepository));
 
-            _inventoryWindowView = inventoryView ??
-                throw new ArgumentNullException(nameof(inventoryView));
+            _inventoryView = new InventoryView();
+
         }
 
         public void HideInventory()
         {
-            throw new NotImplementedException();
         }
 
         public void ShowInventory(Action callback)
         {
-            throw new NotImplementedException();
+            
         }
 
         protected override void OnDispose()
