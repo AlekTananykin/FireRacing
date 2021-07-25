@@ -3,9 +3,9 @@ namespace Assets.Code
 {
     public enum GameState
     {
-        None,
-        Start,
-        Stop,
-        Game
+        None = 0,
+        Start = 1,
+        Stop = 2,
+        Game = 3
     }
 }

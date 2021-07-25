@@ -1,8 +1,12 @@
 ﻿
 
+using Assets.Code.Data;
 using Assets.Code.Ui;
 using Assets.Profile;
 using Assets.Tools;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class GameController : BaseController
 {
@@ -24,6 +28,14 @@ public class GameController : BaseController
             
         var carController = new CarController();
         AddController(carController);
+
+
+        var upgrades = (UpgradeItemConfigDataSource)Resources.Load("InfoItems/UpgradeItems");
+        List<UpgradeItemConfig> upgradeItemConfigs = upgrades.ItemConfigs.ToList();
+
+        var shedController = new ShedController(upgradeItemConfigs, profilePlayer.CurrentCar);
+        AddController(shedController);
+
     }
 
     protected override void OnDispose()
