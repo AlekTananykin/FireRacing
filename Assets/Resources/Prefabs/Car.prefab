@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 69547459536009632}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &69547458849712791
 SpriteRenderer:
@@ -111,7 +111,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 69547459536009632}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &69547459051123982
 SpriteRenderer:
@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 69547459536009632}
   - component: {fileID: 69547459536009635}
   - component: {fileID: -5855017356336409618}
+  - component: {fileID: 9160597494148331300}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -193,9 +194,9 @@ Transform:
   m_LocalPosition: {x: 0, y: -2.3, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 69547460132496647}
   - {fileID: 69547459051123969}
   - {fileID: 69547458849712790}
+  - {fileID: 69547460132496647}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -237,6 +238,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 2.4}
   m_EdgeRadius: 0
+--- !u!50 &9160597494148331300
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69547459536009634}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &69547460132496646
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +288,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 69547459536009632}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &69547460132496644
 SpriteRenderer:
