@@ -34,7 +34,7 @@ namespace Assets.Code.Ui
 
             _objView = UnityEngine.Object.Instantiate(ResourceLoader.LoadPrefab(_viewPath));
 
-            _inventoryView = _objView.AddComponent<InventoryView>();
+            _inventoryView = _objView.GetComponent<InventoryView>();
             var backButtonView = _objView.GetComponent<BackButtonView>();
             backButtonView.Init(HideInventory);
         }

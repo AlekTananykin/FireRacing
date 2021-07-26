@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 652463725542562149}
   - component: {fileID: 652463725542562150}
   - component: {fileID: 3498381833158783075}
+  - component: {fileID: 2792932219943334860}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -192,6 +193,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backButton: {fileID: 2934928969066038529}
+--- !u!114 &2792932219943334860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652463725542562151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf8f36193387b04289a35372ba72520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemViewPanel: {fileID: 652463726051124695}
 --- !u!1 &652463725885540601
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.21568628, g: 0.043137256, b: 1, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

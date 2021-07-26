@@ -21,7 +21,7 @@ namespace Assets.Code.Item
         {
             foreach (var config in configs)
             {
-                if (upgradeHandlers.ContainsKey(config.Id))
+                if (!upgradeHandlers.ContainsKey(config.Id))
                     upgradeHandlers.Add(config.Id, CreateItem(config));
             }
         }

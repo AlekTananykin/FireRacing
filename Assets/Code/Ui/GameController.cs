@@ -29,7 +29,8 @@ public class GameController : BaseController
         var carController = new CarController();
         AddController(carController);
 
-        var upgrades = (UpgradeItemConfigDataSource)Resources.Load("InfoItems/UpgradeItems");
+        var upgrades = (UpgradeItemConfigDataSource)Resources.Load(
+            "InfoItems/UpgradeItems");
         List<UpgradeItemConfig> upgradeItemConfigs = upgrades.ItemConfigs.ToList();
 
         var shedController = new ShedController(leftMoveDiff, rightMoveDiff,

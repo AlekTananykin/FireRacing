@@ -16,6 +16,9 @@ namespace Assets.Code.Ui
             PathResource = "Prefabs/InventorySlot"
         };
 
+        [SerializeField]
+        private GameObject _itemViewPanel;
+
         public event EventHandler<IItem> Selected;
         public event EventHandler<IItem> Deselected;
 
@@ -36,7 +39,9 @@ namespace Assets.Code.Ui
                 var slotButton = itemView.GetComponent<Button>();
                 slotButton.onClick.AddListener(Listener);
 
-                itemView.transform.parent = gameObject.transform;
+                itemView.transform.parent = _itemViewPanel.transform;
+                var text = itemView.GetComponentInChildren<Text>();
+                text.text = itemInfoCollection[i].Info.Title;
             }
         }
 
