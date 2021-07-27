@@ -1,4 +1,5 @@
 ﻿using Assets.Code.Ability;
+using Assets.Code.Data;
 using Assets.Code.Tools;
 using JetBrains.Annotations;
 using System;
@@ -13,27 +14,19 @@ namespace Assets.Code.Ui
     class GunAbility: IAbility
     {
         private Rigidbody2D _viewPrefab;
-        private readonly float _projectileSpeed;
+        private AbilityItemConfig _config;
 
         public GunAbility(
-            [NotNull] string viewPath,
-            float projectilSpeed)
+            [NotNull] AbilityItemConfig config)
         {
-            _viewPrefab = ResourceLoader.LoadObject<Rigidbody2D>(
-                new ResourcePath{PathResource = viewPath});
-
-            if (null == _viewPrefab)
-                throw new InvalidOperationException($"{nameof(GunAbility)} " +
-                    $"view requires {nameof(Rigidbody2D)} component!");
-
-            _projectileSpeed = projectilSpeed;
+            _config = config;
 
         }
 
         public void Apply(IAbilityActivator activator)
         {
             var projectile = UnityEngine.Object.Instantiate(_viewPrefab);
-            projectile.AddForce(activator.GetViewObject().transform.right * _projectileSpeed,
+            projectile.AddForce(activator.GetViewObject().transform.right * _config._value,
                 ForceMode2D.Force);
         }
     }

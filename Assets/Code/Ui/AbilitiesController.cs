@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Code.Ui
 {
-    internal class AbilitiesController: BaseController
+    internal class AbilitiesController: BaseController, IAbilitiesController
     {
         private readonly IInventoryModel _inventoryModel;
         private readonly IAbilityRepository _abilityRepository;
@@ -46,6 +46,11 @@ namespace Assets.Code.Ui
         protected override void OnDispose()
         {
             
+        }
+
+        public void ShowAbilities()
+        {
+            throw new NotImplementedException();
         }
     }
 }

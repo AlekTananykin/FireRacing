@@ -36,6 +36,10 @@ public class GameController : BaseController
         var shedController = new ShedController(leftMoveDiff, rightMoveDiff,
             upgradeItemConfigs, profilePlayer.CurrentCar);
         AddController(shedController);
+
+        var abilities = (AbilityItemConfig)Resources.Load(
+            "Ablities/CannonGun");
+        
     }
 
     protected override void OnDispose()
