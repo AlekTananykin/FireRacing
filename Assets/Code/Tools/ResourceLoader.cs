@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Code.Tools
 {
@@ -12,6 +13,11 @@ namespace Assets.Code.Tools
         public static GameObject LoadPrefab(ResourcePath path)
         {
             return Resources.Load<GameObject>(path.PathResource);
+        }
+
+        internal static T LoadObject<T>(ResourcePath resourcePath)
+        {
+            throw new NotImplementedException();
         }
     }
 }

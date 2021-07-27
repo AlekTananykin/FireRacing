@@ -1,9 +1,10 @@
-﻿using Assets.Code.Tools;
+﻿using Assets.Code.Ability;
+using Assets.Code.Tools;
 using UnityEngine;
 
 namespace Assets.Code.Ui
 {
-    public class CarController : BaseController
+    public class CarController : BaseController, IAbilityActivator
     {
         private readonly ResourcePath _viewPath = new ResourcePath { PathResource = "Prefabs/Car" };
         private readonly CarView _carView;
