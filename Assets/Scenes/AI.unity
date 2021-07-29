@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 749415516}
   - component: {fileID: 749415515}
   m_Layer: 5
-  m_Name: PlusMorey
+  m_Name: PlusMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2295,6 +2295,7 @@ GameObject:
   - component: {fileID: 1723649663}
   - component: {fileID: 1723649662}
   - component: {fileID: 1723649661}
+  - component: {fileID: 1723649665}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2395,6 +2396,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1723649665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723649660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ceb3385af9ad54e8bed2c05976413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyCountText: {fileID: 1595848287}
+  _healthCountText: {fileID: 259190323}
+  _powerCountText: {fileID: 689207711}
+  _enemyPowerCountText: {fileID: 1752141114}
+  _addCoinsButton: {fileID: 749415515}
+  _minusCoinsButton: {fileID: 1927437380}
+  _addHealthButton: {fileID: 1419981407}
+  _minusHealthButton: {fileID: 1304640976}
+  _addPowerButton: {fileID: 480607502}
+  _minusPowerButton: {fileID: 1199081388}
+  _fightButton: {fileID: 685499772}
 --- !u!1 &1728405420
 GameObject:
   m_ObjectHideFlags: 0
