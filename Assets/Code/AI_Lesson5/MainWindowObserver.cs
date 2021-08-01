@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MainWindowObserver : MonoBehaviour
 {
-
     [SerializeField]
     private TMP_Text _moneyCountText;
 
@@ -38,6 +37,18 @@ public class MainWindowObserver : MonoBehaviour
 
     [SerializeField]
     private Button _fightButton;
+
+    [SerializeField]
+    private Button _addCrymeButton;
+
+    [SerializeField]
+    private Button _minusCrymeButton;
+
+    [SerializeField]
+    TMP_Text _enemyCrymeText;
+
+    [SerializeField]
+    private Button _peaceButton;
 
     private int _allCountMoneyPlayer;
     private int _allCountHealthPlayer;
@@ -72,6 +83,13 @@ public class MainWindowObserver : MonoBehaviour
         _minusPowerButton.onClick.AddListener(() => ChangePower(false));
 
         _fightButton.onClick.AddListener(Fight);
+
+        _addCrymeButton.onClick.AddListener(() => ChangeCryme(true));
+
+        _minusCrymeButton.onClick.AddListener(() => ChangeCryme(false));
+
+        _peaceButton.onClick.AddListener(Peace);
+        _peaceButton.gameObject.SetActive(true);
     }
 
     private void ChangePower(bool isAddCount)
@@ -126,7 +144,6 @@ public class MainWindowObserver : MonoBehaviour
         }
 
         _enemyPowerCountText.text = $"Enemy Power {_enemy.Power}";
-
     }
 
     private void Fight()
@@ -134,7 +151,30 @@ public class MainWindowObserver : MonoBehaviour
         Debug.Log(_allCountPowerPlayer >= _enemy.Power
         ? "<color=#07FF00>Win!!!</color>"
         : "<color=#FF0000>Lose!!!</color>");
+    }
 
+    void ChangeCryme(bool isIncrease)
+    {
+        if (isIncrease)
+            ++_enemy.Cryme;
+        else
+            --_enemy.Cryme;
+
+        SuggestFightDecision();
+        _enemyCrymeText.text = $"Enemy cryme: {_enemy.Cryme}";
+    }
+
+    void SuggestFightDecision()
+    {
+        if (_enemy.Cryme <= 2)
+            _peaceButton.gameObject.SetActive(true);
+        else
+            _peaceButton.gameObject.SetActive(false);
+    }
+
+    private void Peace()
+    {
+        Debug.Log("<color=#07FF00>Peace!!!</color>");
     }
 
     private void OnDestroy()
@@ -154,8 +194,6 @@ public class MainWindowObserver : MonoBehaviour
         _health.Detach(_enemy);
         _power.Detach(_enemy);
     }
-
-
 
     void Update()
     {

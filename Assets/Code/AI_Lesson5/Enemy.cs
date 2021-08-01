@@ -38,9 +38,25 @@ public class Enemy : IEnemy
     {
         get
         {
-            var kHealth = _playerHealth > MaxHealthPlayer ? 100 : 5;
-            var power = (int)(_playerMoney / KCoins + kHealth + _playerPower / KPower);
-                return power;
+            float moneyWeight = 1.0f;
+            if (_playerMoney > KCoins)
+                moneyWeight = 1.0f / (1.0f + _playerMoney);
+
+            float power = _playerPower * (moneyWeight + _playerHealth / MaxHealthPlayer);
+            return (int)power;
         }
     }
+
+    int _cryme;
+    public int Cryme 
+    { 
+        get => _cryme;
+        set
+        {
+            _cryme = value;
+            if (_cryme < 0)
+                _cryme = 0;
+        } 
+    }
+    
 }
