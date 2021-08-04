@@ -54,6 +54,8 @@ public class DailyRewardController
         if (_dailyRewardView.TimeGetReward.HasValue)
         {
             var timeSpan = DateTime.UtcNow - _dailyRewardView.TimeGetReward.Value;
+            _dailyRewardView.Progress.Indicator = 
+                1.0f - timeSpan.Seconds / _dailyRewardView.TimeDeadline;
 
             if (timeSpan.Seconds > _dailyRewardView.TimeDeadline)
             {
@@ -81,9 +83,13 @@ public class DailyRewardController
         {
             if (_dailyRewardView.TimeGetReward != null)
             {
-                var nextClaimTime = _dailyRewardView.TimeGetReward.Value.AddSeconds(_dailyRewardView.TimeCooldown);
-                var currentClaimCooldown = nextClaimTime - DateTime.UtcNow;
-                var timeGetReward = $"{currentClaimCooldown.Days:D2}:{currentClaimCooldown.Hours:D2}:{currentClaimCooldown.Minutes:D2}:{currentClaimCooldown.Seconds:D2}";
+                var nextClaimTime = 
+                    _dailyRewardView.TimeGetReward.Value.AddSeconds(_dailyRewardView.TimeCooldown);
+                var currentClaimCooldown = 
+                    nextClaimTime - DateTime.UtcNow;
+                var timeGetReward = 
+                    $"{currentClaimCooldown.Days:D2}:{currentClaimCooldown.Hours:D2}:" +
+                    $"{currentClaimCooldown.Minutes:D2}:{currentClaimCooldown.Seconds:D2}";
 
                 _dailyRewardView.TimerNewReward.text = $"Time to get the next reward: {timeGetReward}";
             }
@@ -117,7 +123,8 @@ public class DailyRewardController
         }
 
         _dailyRewardView.TimeGetReward = DateTime.UtcNow;
-        _dailyRewardView.CurrentSlotInActive = (_dailyRewardView.CurrentSlotInActive + 1) % _dailyRewardView.Rewards.Count;
+        _dailyRewardView.CurrentSlotInActive = 
+            (_dailyRewardView.CurrentSlotInActive + 1) % _dailyRewardView.Rewards.Count;
 
         RefreshRewardsState();
     }

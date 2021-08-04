@@ -36,6 +36,9 @@ public class DailyRewardView : MonoBehaviour
     [SerializeField]
     private Button _resetButton;
 
+    [SerializeField]
+    private ProgressView _progressBar;
+
     public float TimeCooldown => _timeCooldown;
 
     public float TimeDeadline => _timeDeadline;
@@ -57,6 +60,9 @@ public class DailyRewardView : MonoBehaviour
         get => PlayerPrefs.GetInt(CurrentSlotInActiveKey, 0);
         set => PlayerPrefs.SetInt(CurrentSlotInActiveKey, value);
     }
+
+    public ProgressView Progress => _progressBar;
+    
 
     public DateTime? TimeGetReward
     {
