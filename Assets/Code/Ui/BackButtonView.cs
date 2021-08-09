@@ -14,6 +14,6 @@ public class BackButtonView : MonoBehaviour
 
     protected void OnDestroy()
     {
-        _backButton.onClick.RemoveAllListeners();
+        //_backButton.onClick.RemoveAllListeners();
     }
 }

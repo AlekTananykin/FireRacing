@@ -1,5 +1,6 @@
 ﻿using Assets.Code.Tools;
 using Assets.Profile;
+using System;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -15,7 +16,7 @@ namespace Assets.Code.Ui
         {
             _profilePlayer = profilePlayer;
             _view = LoadView(placeForUi);
-            _view.Init(StartGame);
+            _view.Init(StartGame, DailyReward);
         }
 
         private readonly ResourcePath _viewPath = new ResourcePath() 
@@ -36,6 +37,11 @@ namespace Assets.Code.Ui
                 ("time", Time.realtimeSinceStartup));
             _profilePlayer.AdsShower.ShowRewardedVideo();
             Advertisement.AddListener(_profilePlayer.AdsListener);
+        }
+
+        private void DailyReward()
+        {
+            _profilePlayer.CurrentState.Value = GameState.DailyReward;
         }
 
         protected override void OnDispose()

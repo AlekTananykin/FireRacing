@@ -1,10 +1,14 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class CustomButton : Button
 {
+    private AudioSource _audioSource;
+
     public static string ChangeButtonType => 
         nameof(_animationButtonType);
 
@@ -29,12 +33,20 @@ public class CustomButton : Button
     {
         base.Awake();
         _rectTransform = GetComponent<RectTransform>();
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public override void OnPointerClick(PointerEventData eventData)
     {
         base.OnPointerClick(eventData);
         ActivateAnimation();
+        PlaySound();
+    }
+
+    private void PlaySound()
+    {
+        _audioSource.Play();
     }
 
     private void ActivateAnimation()
