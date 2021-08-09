@@ -55,5 +55,4 @@ public class CurrencyView : MonoBehaviour
         _woodCount.text = Wood.ToString();
         _diamondCount.text = Diamonds.ToString();
     }
-
 }

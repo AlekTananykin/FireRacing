@@ -1,18 +1,33 @@
+using Assets.Code;
+using Assets.Profile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-public class DailyRewardController
+public class DailyRewardController: BaseController
 {
     private DailyRewardView _dailyRewardView;
     private List<RewardSlotView> _slots;
 
     private bool _isGetReward;
 
-    public DailyRewardController(DailyRewardView generateLevelView)
+    private CurrencyController _currencyController;
+    private ProfilePlayer _playerProfile;
+
+    public DailyRewardController(Transform uiPlace, ProfilePlayer playerProfile,
+        DailyRewardView generateLevelView,
+        CurrencyView currencyView)
     {
-        _dailyRewardView = generateLevelView;
+        _playerProfile = playerProfile;
+
+        _dailyRewardView = Object.Instantiate(generateLevelView, uiPlace);
+        AddGameObject(_dailyRewardView.gameObject);
+
+        _currencyController = new CurrencyController(uiPlace, currencyView);
+        AddController(_currencyController);
+        
     }
 
     public void RefreshView()
@@ -103,6 +118,8 @@ public class DailyRewardController
     {
         _dailyRewardView.GetRewardButton.onClick.AddListener(ClaimReward);
         _dailyRewardView.ResetButton.onClick.AddListener(ResetTimer);
+        _dailyRewardView.CloseButton.onClick.AddListener(Close);
+
     }
 
     private void ClaimReward()
@@ -132,6 +149,12 @@ public class DailyRewardController
     private void ResetTimer()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    private void Close()
+    {
+        _currencyController?.Dispose();
+        _playerProfile.CurrentState.Value = GameState.Start;
     }
 
 }
