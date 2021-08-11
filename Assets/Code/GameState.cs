@@ -9,5 +9,6 @@ namespace Assets.Code
         Game = 3,
         DailyReward = 4,
         Fight = 5,
+        StartFight = 6,
     }
 }

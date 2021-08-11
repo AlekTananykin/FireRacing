@@ -119,7 +119,6 @@ public class DailyRewardController: BaseController
         _dailyRewardView.GetRewardButton.onClick.AddListener(ClaimReward);
         _dailyRewardView.ResetButton.onClick.AddListener(ResetTimer);
         _dailyRewardView.CloseButton.onClick.AddListener(Close);
-
     }
 
     private void ClaimReward()
@@ -157,4 +156,10 @@ public class DailyRewardController: BaseController
         _playerProfile.CurrentState.Value = GameState.Start;
     }
 
+    protected override void OnDispose()
+    {
+        _dailyRewardView.GetRewardButton.onClick.RemoveAllListeners();
+        _dailyRewardView.ResetButton.onClick.RemoveAllListeners();
+        _dailyRewardView.CloseButton.onClick.RemoveAllListeners();
+    }
 }

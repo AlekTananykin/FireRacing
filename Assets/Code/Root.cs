@@ -9,6 +9,14 @@ public class Root : MonoBehaviour
 
     [SerializeField]
     private UnityAdsTools _unityAdsTools;
+    [SerializeField]
+    DailyRewardView _dailyRewardView;
+    [SerializeField]
+    CurrencyView _currencyView;
+    [SerializeField]
+    StartFightView _startFightView;
+    [SerializeField]
+    ButtleFieldView _buttleFieldView;
 
     private MainController _mainController;
 
@@ -17,8 +25,8 @@ public class Root : MonoBehaviour
         var profilePlayer = new ProfilePlayer(15f, _unityAdsTools);
         profilePlayer.CurrentState.Value = GameState.Start;
 
-
-        _mainController = new MainController(_placeForUi, profilePlayer);
+        _mainController = new MainController(_placeForUi, profilePlayer,
+            _dailyRewardView, _currencyView, _startFightView, _buttleFieldView);
     }
 
     protected void OnDestroy()

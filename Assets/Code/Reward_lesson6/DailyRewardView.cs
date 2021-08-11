@@ -88,11 +88,4 @@ public class DailyRewardView : MonoBehaviour
                 PlayerPrefs.DeleteKey(TimeGetRewardKey);
         }
     }
-
-    private void OnDestroy()
-    {
-        _getRewardButton.onClick.RemoveAllListeners();
-        _resetButton.onClick.RemoveAllListeners();
-        _closeButton.onClick.RemoveAllListeners();
-    }
 }
