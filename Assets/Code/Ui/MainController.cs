@@ -74,11 +74,12 @@ public class MainController : BaseController
                     _dailyRewardController = new DailyRewardController(
                         _placeForUi, _profilePlayer, _dailyRewardView, _currencyView);
 
+                    _dailyRewardController.RefreshView();
+
                     _mainMenuController?.Dispose();
                     _gameController?.Dispose();
                     _startFightController?.Dispose();
                     _buttleFieldController?.Dispose();
-                    _dailyRewardController?.Dispose();
                     break;
                 }
             case GameState.Fight:
