@@ -4,8 +4,8 @@ using UnityEngine.Networking;
 
 public class AssetBundleViewBase : MonoBehaviour
 {
-    private const string _urlAssetBundleSprites = 
-        "https://";
+    private const string _urlAssetBundleSprites =
+        "https://drive.google.com/uc?export=download&id=18HZvOYpz7h9avb_TNiFTNFRtZkaq2nEj";
     private const string _urlAssetBundleAudio = 
         "https://";
 
@@ -21,11 +21,14 @@ public class AssetBundleViewBase : MonoBehaviour
 
     protected IEnumerator DownloadAndSetAssetBundle()
     {
-        yield return GetSpriteAssetBundle();
-        yield return GetAudioAssetBundle();
+        if (_spriteBundles.Length > 0)
+            yield return GetSpriteAssetBundle();
 
-        if (null == _spriteAssetsBundle ||
-            null == _audioAssetsBundle)
+        if (_audioBundles.Length > 0)
+            yield return GetAudioAssetBundle();
+
+        if (null == _spriteAssetsBundle && _spriteBundles.Length > 0 ||
+            null == _audioAssetsBundle && _audioBundles.Length > 0)
         {
             Debug.LogError($"AssetBundle {_audioAssetsBundle} failed to load");
             yield break;

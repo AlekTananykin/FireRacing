@@ -1,7 +1,10 @@
 ManifestFileVersion: 0
-CRC: 1099236448
+CRC: 194141579
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: ui_graphic_resources
+      Dependencies: {}
+    Info_1:
+      Name: cars
       Dependencies: {}

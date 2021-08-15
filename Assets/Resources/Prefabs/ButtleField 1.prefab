@@ -320,7 +320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a17e5b05ebf831647a3e4bb069a1db6d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 176ae1795a930bd40a559cc3e77a7731, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 2581317734464122130}
   - component: {fileID: 2581317734464122129}
   - component: {fileID: 2581317734464122349}
+  - component: {fileID: 8544651044458565511}
   m_Layer: 5
   m_Name: ButtleField 1
   m_TagString: Untagged
@@ -687,6 +688,33 @@ MonoBehaviour:
   _enemyCrymeText: {fileID: 2581317735115647711}
   _peaceButton: {fileID: 2581317736181457529}
   _leaveButtleField: {fileID: 3226461520100865805}
+--- !u!114 &8544651044458565511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581317734464122128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31c97cac79ff234c8777f29cf1b128f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteBundles:
+  - NameAssetBundle: TruckChassisSprite
+    Image: {fileID: 2581317734350362001}
+  - NameAssetBundle: TruckEnemyChassisSprite
+    Image: {fileID: 2581317735939718860}
+  - NameAssetBundle: TruckWheelSprite
+    Image: {fileID: 2581317734249473908}
+  - NameAssetBundle: TruckWheelSprite
+    Image: {fileID: 2581317734904716521}
+  - NameAssetBundle: TruckWheelSprite
+    Image: {fileID: 2581317734621434531}
+  - NameAssetBundle: TruckWheelSprite
+    Image: {fileID: 2581317734956146059}
+  _audioBundles: []
+  _loadAssetsButton: {fileID: 0}
 --- !u!1 &2581317734511226452
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a17e5b05ebf831647a3e4bb069a1db6d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1473,7 +1501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a17e5b05ebf831647a3e4bb069a1db6d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1548,7 +1576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a17e5b05ebf831647a3e4bb069a1db6d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3427,7 +3455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 17ce327266bb5d849a4b286abcac3b51, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
