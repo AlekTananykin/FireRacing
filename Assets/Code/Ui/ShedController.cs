@@ -27,7 +27,7 @@ namespace Assets.Code.Ui
         private readonly InventoryController _inventoryController;
         private readonly IInventoryView _inventoryView;
 
-        private ShedView _shedView;
+        private ActiveObjectView _shedView;
 
         private readonly IReadOnlySubscriptionProperty<float> _leftMove;
         private readonly IReadOnlySubscriptionProperty<float> _rightMove;
@@ -98,13 +98,13 @@ namespace Assets.Code.Ui
         }
 
 
-        private ShedView LoadView()
+        private ActiveObjectView LoadView()
         {
             var objView = UnityEngine.Object.Instantiate(
                 ResourceLoader.LoadPrefab(_viewPath));
             AddGameObject(objView);
 
-            return objView.AddComponent<ShedView>();
+            return objView.AddComponent<ActiveObjectView>();
         }
 
         private void OnEnter(GameObject guest)

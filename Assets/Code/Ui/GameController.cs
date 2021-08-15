@@ -37,9 +37,8 @@ public class GameController : BaseController
             upgradeItemConfigs, profilePlayer.CurrentCar);
         AddController(shedController);
 
-        var abilities = (AbilityItemConfig)Resources.Load(
-            "Ablities/CannonGun");
-        
+        var enemyCar = new EnemyCarController(profilePlayer, leftMoveDiff, rightMoveDiff);
+        AddController(enemyCar);
     }
 
     protected override void OnDispose()

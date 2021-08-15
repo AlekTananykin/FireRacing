@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Code.Ui
 {
-    class ShedView: MonoBehaviour
+    public class ActiveObjectView: MonoBehaviour
     {
         public void OnTriggerEnter2D(Collider2D collision)
         {

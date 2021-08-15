@@ -153,9 +153,9 @@ RectTransform:
   m_Father: {fileID: 2581317734464122348}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -655, y: 63}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 819, y: -289}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2581317734249473909
@@ -364,7 +364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 643, y: 590}
+  m_AnchoredPosition: {x: 955, y: 516}
   m_SizeDelta: {x: 512, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2581317734350362002
@@ -553,6 +553,7 @@ MonoBehaviour:
   _minusCrymeButton: {fileID: 2581317734744887918}
   _enemyCrymeText: {fileID: 2581317735115647711}
   _peaceButton: {fileID: 2581317736181457529}
+  _leaveButtleField: {fileID: 0}
 --- !u!1 &2581317734511226452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,9 +1307,9 @@ RectTransform:
   m_Father: {fileID: 2581317734464122348}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -357, y: 58}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1117, y: -294}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2581317734904716522
