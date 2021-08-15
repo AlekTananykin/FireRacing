@@ -17,4 +17,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tween.unity
     guid: 070e5f90105c04a4cbf1c073331575ea
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 4971ff8918b182f499e8db2c99e348f8, type: 2}

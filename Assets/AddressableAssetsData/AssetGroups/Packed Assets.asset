@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Packed Assets
+  m_EditorClassIdentifier: 
+  m_GroupName: Packed Assets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 89d89f56792af964ea59f65a81c188f0
+  m_SerializeEntries:
+  - m_GUID: c792e25b42cfa5f4984168103483adda
+    m_Address: Prefabs/Car
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player
+    m_MainAsset: {fileID: 69547459536009634, guid: c792e25b42cfa5f4984168103483adda, type: 3}
+    m_TargetAsset: {fileID: 69547459536009634, guid: c792e25b42cfa5f4984168103483adda, type: 3}
+  - m_GUID: 988ee408d342a924dbfac2dcc8c40604
+    m_Address: Prefabs/EnemyCar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0e5a32fb0b151ab44b87f6a3fe54b80d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 53a46b9dadd2c70419b3ccd1e6b1e93f, type: 2}
+    - {fileID: 11400000, guid: e2872776c4ece6d4b9a4a9b17f46a063, type: 2}
