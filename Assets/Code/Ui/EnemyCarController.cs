@@ -38,7 +38,7 @@ public class EnemyCarController: ActiveObjectController
 
     private void IntruderIsDetected(GameObject intruder)
     {
-        _profile.CurrentState.Value = Assets.Code.GameState.StartFight;
+        _profile.CurrentState.Value = Assets.Code.GameState.Fight;
     }
 
     protected override void OnDispose()

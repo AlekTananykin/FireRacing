@@ -20,6 +20,7 @@ public class ButtleFieldController : BaseController
     public ButtleFieldController(ProfilePlayer playerProfile,
         Transform uiPosition, ButtleFieldView buttleFieldView)
     {
+        _playerProfile = playerProfile;
         _buttleFieldView = Object.Instantiate(buttleFieldView, uiPosition);
         AddGameObject(_buttleFieldView.gameObject);
 
