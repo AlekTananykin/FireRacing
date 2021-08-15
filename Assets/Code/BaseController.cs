@@ -33,7 +33,6 @@ public abstract class BaseController : IDisposable
             }
 
         }
-
         OnDispose();
     }
     protected void AddController(BaseController baseController)

@@ -160,6 +160,7 @@ public class ButtleFieldController : BaseController
 
     private void LeaveButtleField()
     {
+        _playerProfile.IsEnemyCarPresent = false;
         _playerProfile.CurrentState.Value = Assets.Code.GameState.Game;
     }
 

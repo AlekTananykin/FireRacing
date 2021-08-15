@@ -13,6 +13,7 @@ namespace Assets.Profile
             AnalyticTools = new UnityAnalyticTools();
             AdsShower = unityAdsTools;
             AdsListener = unityAdsTools;
+            IsEnemyCarPresent = true;
         }
 
         public SubscriptionProperty<GameState> CurrentState { get; }
@@ -22,5 +23,7 @@ namespace Assets.Profile
         public IAdsShower AdsShower { get; }
 
         public IUnityAdsListener AdsListener { get; }
+
+        public bool IsEnemyCarPresent { get; set; }
     }
 }

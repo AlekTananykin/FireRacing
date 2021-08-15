@@ -37,8 +37,12 @@ public class GameController : BaseController
             upgradeItemConfigs, profilePlayer.CurrentCar);
         AddController(shedController);
 
-        var enemyCar = new EnemyCarController(profilePlayer, leftMoveDiff, rightMoveDiff);
-        AddController(enemyCar);
+        if (profilePlayer.IsEnemyCarPresent)
+        {
+            var enemyCar = 
+                new EnemyCarController(profilePlayer, leftMoveDiff, rightMoveDiff);
+            AddController(enemyCar);
+        }
     }
 
     protected override void OnDispose()
