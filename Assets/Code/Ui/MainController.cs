@@ -2,13 +2,18 @@
 using Assets.Code.Ui;
 using Assets.Profile;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class MainController : BaseController
 {
     public MainController(Transform placeForUi, ProfilePlayer profilePlayer,
         DailyRewardView dailyRewardView, CurrencyView currencyView,
-        StartFightView startFightView, ButtleFieldView buttleFieldView)
+        StartFightView startFightView, ButtleFieldView buttleFieldView,
+        AssetReference carAssetReference, AssetReference enemyAssetReference)
     {
+        _carAssetReference = carAssetReference;
+        _enemyAssetReference = enemyAssetReference;
+
         _profilePlayer = profilePlayer;
         _placeForUi = placeForUi;
 
@@ -35,6 +40,8 @@ public class MainController : BaseController
     private readonly StartFightView _startFightView;
     private readonly ButtleFieldView _buttleFieldView;
 
+    private AssetReference _carAssetReference;
+    private AssetReference _enemyAssetReference;
 
     protected override void OnDispose()
     {
@@ -60,7 +67,9 @@ public class MainController : BaseController
                 }
             case GameState.Game:
                 {
-                    _gameController = new GameController(_profilePlayer);
+                    _gameController = new GameController(_profilePlayer,
+                        _carAssetReference,
+                        _enemyAssetReference);
 
                     _mainMenuController?.Dispose();
 

@@ -1,5 +1,4 @@
 ﻿
-
 using Assets.Code.Data;
 using Assets.Code.Ui;
 using Assets.Profile;
@@ -7,10 +6,13 @@ using Assets.Tools;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class GameController : BaseController
 {
-    public GameController(ProfilePlayer profilePlayer)
+    public GameController(ProfilePlayer profilePlayer, 
+        AssetReference carAssetReference,
+        AssetReference enemyAssetReference)
     {
         var leftMoveDiff = new SubscriptionProperty<float>();
         var rightMoveDiff = new SubscriptionProperty<float>();
@@ -26,7 +28,7 @@ public class GameController : BaseController
         
         AddController(inputGameController);
             
-        var carController = new CarController();
+        var carController = new CarController(carAssetReference);
         AddController(carController);
 
         var upgrades = (UpgradeItemConfigDataSource)Resources.Load(
@@ -40,7 +42,8 @@ public class GameController : BaseController
         if (profilePlayer.IsEnemyCarPresent)
         {
             var enemyCar = 
-                new EnemyCarController(profilePlayer, leftMoveDiff, rightMoveDiff);
+                new EnemyCarController(profilePlayer, leftMoveDiff, rightMoveDiff,
+                enemyAssetReference);
             AddController(enemyCar);
         }
     }

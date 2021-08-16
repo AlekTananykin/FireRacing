@@ -1,6 +1,7 @@
 ﻿using Assets.Code;
 using Assets.Profile;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class Root : MonoBehaviour
 {
@@ -10,13 +11,18 @@ public class Root : MonoBehaviour
     [SerializeField]
     private UnityAdsTools _unityAdsTools;
     [SerializeField]
-    DailyRewardView _dailyRewardView;
+    private DailyRewardView _dailyRewardView;
     [SerializeField]
-    CurrencyView _currencyView;
+    private CurrencyView _currencyView;
     [SerializeField]
-    StartFightView _startFightView;
+    private StartFightView _startFightView;
     [SerializeField]
-    ButtleFieldView _buttleFieldView;
+    private ButtleFieldView _buttleFieldView;
+
+    [SerializeField]
+    private AssetReference _carAssetReference;
+    [SerializeField]
+    private AssetReference _enemyAssetReference;
 
     private MainController _mainController;
 
@@ -26,7 +32,8 @@ public class Root : MonoBehaviour
         profilePlayer.CurrentState.Value = GameState.Start;
 
         _mainController = new MainController(_placeForUi, profilePlayer,
-            _dailyRewardView, _currencyView, _startFightView, _buttleFieldView);
+            _dailyRewardView, _currencyView, _startFightView, _buttleFieldView,
+            _carAssetReference, _enemyAssetReference);
     }
 
     protected void OnDestroy()

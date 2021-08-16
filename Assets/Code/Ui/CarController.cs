@@ -1,6 +1,10 @@
 ﻿using Assets.Code.Ability;
 using Assets.Code.Tools;
+using JetBrains.Annotations;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Assets.Code.Ui
 {
@@ -8,17 +12,23 @@ namespace Assets.Code.Ui
     {
         private readonly ResourcePath _viewPath = new ResourcePath { PathResource = "Prefabs/Car" };
         private readonly CarView _carView;
-
-        public CarController()
+        
+        public CarController([NotNull]AssetReference carAssetReference)
         {
-            _carView = LoadView();
+            _carView = LoadView(carAssetReference);
         }
 
-        private CarView LoadView()
+        private CarView LoadView(AssetReference carAssetReference)
         {
-            var objView = Object.Instantiate(ResourceLoader.LoadPrefab(_viewPath));
-            AddGameObject(objView);
+            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(carAssetReference);
 
+            if (handle.Status != 
+                UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                Debug.Log("CarController: Addressable prefab has not ready. ");
+            }
+            var objView = handle.Result;
+            
             return objView.GetComponent<CarView>();
         }
 

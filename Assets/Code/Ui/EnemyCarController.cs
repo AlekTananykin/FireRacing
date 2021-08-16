@@ -4,6 +4,8 @@ using Assets.Profile;
 using Assets.Tools;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class EnemyCarController: ActiveObjectController
 {
@@ -16,10 +18,11 @@ public class EnemyCarController: ActiveObjectController
 
     public EnemyCarController(ProfilePlayer profile,
             [NotNull] IReadOnlySubscriptionProperty<float> leftMove,
-            [NotNull] IReadOnlySubscriptionProperty<float> rightMove)
+            [NotNull] IReadOnlySubscriptionProperty<float> rightMove,
+            [NotNull] AssetReference enemyAssetReference)
         :base(leftMove, rightMove)
     {
-        View = LoadView();
+        View = LoadView(enemyAssetReference);
         View.OnEnter += IntruderIsDetected;
 
         _position = new Vector3(10f, -2.3f, -0.2f);
@@ -27,11 +30,16 @@ public class EnemyCarController: ActiveObjectController
         _profile = profile;
     }
 
-    private ActiveObjectView LoadView()
+    private ActiveObjectView LoadView(AssetReference enemyAssetReference)
     {
-        var objView = UnityEngine.Object.Instantiate(
-            ResourceLoader.LoadPrefab(_viewPath));
-        AddGameObject(objView);
+        AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(enemyAssetReference);
+
+        if (handle.Status !=
+            UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+        {
+            Debug.Log("EnemyCarController: Addressable prefab has not ready. ");
+        }
+        var objView = handle.Result;
 
         return objView.AddComponent<ActiveObjectView>();
     }

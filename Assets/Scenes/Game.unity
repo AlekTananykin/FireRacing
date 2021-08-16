@@ -449,6 +449,14 @@ MonoBehaviour:
   _currencyView: {fileID: 4010997783841317748, guid: a7b50e9027041604bb20139839a37807, type: 3}
   _startFightView: {fileID: 4969062449815755252, guid: 5829fe22eeb9c124fb734fcd9ca8eb58, type: 3}
   _buttleFieldView: {fileID: 2581317734464122349, guid: d45a4b72a06ecaf47afc35854c54f87e, type: 3}
+  _carAssetReference:
+    m_AssetGUID: c792e25b42cfa5f4984168103483adda
+    m_SubObjectName: 
+    m_SubObjectType: 
+  _enemyAssetReference:
+    m_AssetGUID: 988ee408d342a924dbfac2dcc8c40604
+    m_SubObjectName: 
+    m_SubObjectType: 
 --- !u!4 &1669225964
 Transform:
   m_ObjectHideFlags: 0

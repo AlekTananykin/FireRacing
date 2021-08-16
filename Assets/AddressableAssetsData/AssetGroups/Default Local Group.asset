@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 9aa435ef92d2d874eaefeb777beb25a3
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 181dc266337f3bb4cbec8f09ab126b73
+    m_Address: Assets/AddressableAssetsData/Android/addressables_content_state.bin
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0e5a32fb0b151ab44b87f6a3fe54b80d, type: 2}
   m_SchemaSet:
