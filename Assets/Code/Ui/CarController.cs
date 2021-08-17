@@ -10,35 +10,32 @@ namespace Assets.Code.Ui
 {
     public class CarController : BaseController, IAbilityActivator
     {
-        private readonly ResourcePath _viewPath = new ResourcePath { PathResource = "Prefabs/Car" };
-        private readonly CarView _carView;
-        
-        public CarController([NotNull]AssetReference carAssetReference)
+        private CarView _carView;
+        AsyncOperationHandle<GameObject> _handle;
+
+        public CarController([NotNull] AssetReference carAssetReference)
         {
-            _carView = LoadView(carAssetReference);
+            _handle =
+                Addressables.InstantiateAsync(carAssetReference);
+            _handle.Completed += GetView;
         }
 
-        private CarView LoadView(AssetReference carAssetReference)
+        private void GetView(AsyncOperationHandle<GameObject> obj)
         {
-            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(carAssetReference);
-
-            if (handle.Status != 
-                UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
-            {
-                Debug.Log("CarController: Addressable prefab has not ready. ");
-            }
-            var objView = handle.Result;
-            
-            return objView.GetComponent<CarView>();
+            if (_carView == null)
+                _carView = obj.Result.GetComponent<CarView>();
         }
 
         public GameObject GetViewObject()
         {
-            return _carView.gameObject;
+            return _carView?.gameObject;
         }
 
         protected override void OnDispose()
         {
+            _handle.Completed -= GetView;
+            Addressables.ReleaseInstance(_handle);
         }
     }
+
 }

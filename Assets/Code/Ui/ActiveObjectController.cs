@@ -12,7 +12,8 @@ namespace Assets.Code.Ui
             set 
             {
                 _view = value;
-                _distanceValue.SubscribeOnChange(_view.Move);
+                if (null != _view)
+                    _distanceValue.SubscribeOnChange(_view.Move);
             }
         }
 

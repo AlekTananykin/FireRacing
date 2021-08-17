@@ -7,26 +7,24 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class EnemyCarController: ActiveObjectController
+public class EnemyCarController : ActiveObjectController
 {
     private Vector3 _position;
 
-    private readonly ResourcePath _viewPath =
-           new ResourcePath { PathResource = "Prefabs/EnemyCar" };
-
+    private CarView _carView;
     private ProfilePlayer _profile;
+    AsyncOperationHandle<GameObject> _handle;
 
     public EnemyCarController(ProfilePlayer profile,
             [NotNull] IReadOnlySubscriptionProperty<float> leftMove,
             [NotNull] IReadOnlySubscriptionProperty<float> rightMove,
             [NotNull] AssetReference enemyAssetReference)
-        :base(leftMove, rightMove)
+        : base(leftMove, rightMove)
     {
-        View = LoadView(enemyAssetReference);
-        View.OnEnter += IntruderIsDetected;
+        _handle =
+              Addressables.InstantiateAsync(enemyAssetReference);
+        _handle.Completed += GetView;
 
-        _position = new Vector3(10f, -2.3f, -0.2f);
-        View.transform.position = _position;
         _profile = profile;
     }
 
@@ -44,6 +42,19 @@ public class EnemyCarController: ActiveObjectController
         return objView.AddComponent<ActiveObjectView>();
     }
 
+    private void GetView(AsyncOperationHandle<GameObject> obj)
+    {
+        if (View != null)
+            return;
+
+        View = obj.Result.AddComponent<ActiveObjectView>();
+
+        View.OnEnter += IntruderIsDetected;
+
+        _position = new Vector3(10f, -2.3f, -0.2f);
+        View.transform.position = _position;
+    }
+
     private void IntruderIsDetected(GameObject intruder)
     {
         _profile.CurrentState.Value = Assets.Code.GameState.Fight;
@@ -52,7 +63,9 @@ public class EnemyCarController: ActiveObjectController
     protected override void OnDispose()
     {
         base.OnDispose();
-
         View.OnEnter -= IntruderIsDetected;
+
+        _handle.Completed -= GetView;
+        Addressables.ReleaseInstance(_handle);
     }
 }
